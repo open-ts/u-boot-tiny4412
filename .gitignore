@@ -24,6 +24,8 @@
 !E4412_N.bl1.bin
 !E4412_tzsw.bin
 
+/pro/*
+
 # host programs on Cygwin
 *.exe
 

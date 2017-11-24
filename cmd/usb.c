@@ -590,7 +590,7 @@ static void do_usb_start(void)
 	int _i;
 	for(_i = 0;_i < 3;_i++){
 		usb_ether_curr_dev = usb_host_eth_scan(1);
-		if(usb_ether_curr_dev > 0)
+		if(usb_ether_curr_dev >= 0)
 			break;
 	}
 # endif
