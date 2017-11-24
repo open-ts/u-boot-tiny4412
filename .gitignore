@@ -21,6 +21,9 @@
 *.patch
 *.cfgtmp
 
+!E4412_N.bl1.bin
+!E4412_tzsw.bin
+
 # host programs on Cygwin
 *.exe
 
