@@ -1,0 +1,2 @@
+---- CONFIG_SYS_MMC_ENV_DEV Matches (1 in 0 files) ----
+Env_mmc.c (common):	return CONFIG_SYS_MMC_ENV_DEV;
