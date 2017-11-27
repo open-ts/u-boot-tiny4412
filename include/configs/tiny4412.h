@@ -156,13 +156,13 @@
 #define CONFIG_EXTRA_ENV_SETTINGS \
 	"wruboot2emmc=if test $mmcdev -eq 2;then;mmc dev 2;mmc read 0x40800000 0x1 0x908;mmc dev 4 1;mmc write 0x40800000 0x0 0x908;fi \0" \
 	"resetenv=mmc dev $mmcdev;mmc erase $envoffset 0x20 \0" \
-	"nfsboot=setenv bootargs noinitrd root=/dev/nfs rw nfsroot=$serverip:/opt/rootfs ethmac=$ethaddr ip=$ipaddr:$serverip:$gatewayip:$netmask:TINY4412:eth0:off console=ttySAC0,115200 init=/linuxrc;usb start;tftp 0x40800000 uImage;tftp 0x41000000 ramdisk.img;tftp 0x42000000 exynos4412-tiny4412.dtb;bootm 0x40800000 0x41000000 0x42000000 \0" \
-	"ramdiskboot=usb start; \0"
-	
+	"usb start;nfsboot=setenv bootargs noinitrd root=/dev/nfs rw nfsroot=$serverip:/opt/rootfs ethmac=$usbethaddr ip=$ipaddr:$serverip:$gatewayip:$netmask:TINY4412:eth0:off console=ttySAC0,115200 init=/linuxrc;tftp 0x40800000 uImage;tftp 0x41000000 ramdisk.img;tftp 0x42000000 exynos4412-tiny4412.dtb;bootm 0x40800000 0x41000000 0x42000000 \0" \
+	"ramdiskboot=usb start; \0" \
+	"nfsbootzImage=usb start;setenv bootargs noinitrd root=/dev/nfs rw nfsroot=$serverip:/opt/rootfs ethmac=$usbethaddr ip=$ipaddr:$serverip:$gatewayip:$netmask:TINY4412:eth0:off console=ttySAC0,115200 init=/linuxrc;tftp 0x40800000 zImage;usb stop;go 0x40800000 \0" \
+	"\0"
 #define CONFIG_SERVERIP 	192.168.1.88
 #define CONFIG_IPADDR		192.168.1.20
 #define CONFIG_GATEWAYIP	192.168.1.1
-#define CONFIG_ETHADDR		2e:b4:06:ee:61:40
 #define CONFIG_NETMASK		255.255.255.0
 
 #define CONFIG_BOOTCOMMAND "run nfsboot"
