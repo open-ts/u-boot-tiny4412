@@ -588,7 +588,7 @@ static void do_usb_start(void)
 # else
 	/* try to recognize ethernet devices immediately */
 	int _i;
-	for(_i = 0;_i < 3;_i++){
+	for(_i = 0;_i < 10;_i++){
 		usb_ether_curr_dev = usb_host_eth_scan(1);
 		if(usb_ether_curr_dev >= 0)
 			break;
