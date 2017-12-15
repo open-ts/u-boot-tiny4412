@@ -165,7 +165,9 @@
 #define CONFIG_GATEWAYIP	192.168.1.1
 #define CONFIG_NETMASK		255.255.255.0
 
-#define CONFIG_BOOTCOMMAND "run nfsboot"
+#define CONFIG_BOOTCOMMAND "fatload mmc 0 0x40008000 uImage && fatload mmc 0 0x41000000 ramdisk-u.img && fatload mmc 0 0x44000000 dtbs/exynos4412-tiny4412.dtb; setenv bootargs root=/dev/mmcblk1p2 rootfstype=ext4 rootflags=rw console=ttySAC0,115200; bootm 0x40008000:kernel@1 0x41000000:ramdisk@1 0x44000000:fdt@1"
+
+
 
 #define CONFIG_SPL_LDSCRIPT	"board/samsung/common/exynos-uboot-spl.lds"
 #define CONFIG_SPL_MAX_FOOTPRINT	(14 * 1024)

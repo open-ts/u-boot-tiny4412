@@ -34,7 +34,7 @@
 		console = "/serial@13800000";
 		
 		mmc2 = "/sdhci@12530000";
-		mmc4 = "/dwmmc@12550000";
+		mmc0 = "/dwmmc@12550000";
 
 	};
 
